@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import BarChart from './BarChart';
 import './App.scss';
 
 class App extends Component {
@@ -11,7 +12,7 @@ class App extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     this.setState({ isLoading: true });
-    const res = await fetch('http://localhost:3001/ahlberg.io');
+    const res = await fetch(`http://localhost:3001/${this.state.urlInput}`);
     const json = await res.json();
     this.setState({
       isLoading: false,
@@ -42,13 +43,9 @@ class App extends Component {
             onChange={this.handleUrlInputChange}
           />
         </form>
-        <ul>
-          {this.state.domStats.map(el => (
-            <li>
-              {el.tag} - {el.count}
-            </li>
-          ))}
-        </ul>
+        {this.state.domStats.length > 0 && (
+          <BarChart data={this.state.domStats} />
+        )}
       </div>
     );
   }
