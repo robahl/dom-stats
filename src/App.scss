@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+  max-width: 960px;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 10px;
+
+  input {
+    padding: 5px;
+    font-size: 18px;
+    outline: none;
+  }
+
+  code {
+    border: 1px solid red;
+    width: 100%;
+    display: inline-block;
+    overflow: scroll;
+  }
+
+  ul {
+    list-style-type: none;
+    font-size: 18px;
+  }
+}
